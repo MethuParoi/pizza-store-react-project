@@ -17,6 +17,7 @@ function SearchOrder() {
   return (
     <form onSubmit={handleSubmit}>
       <input
+        className="px-3 py-1 rounded-lg"
         type="text"
         placeholder="Search order"
         value={query}

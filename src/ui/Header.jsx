@@ -4,9 +4,9 @@ import Username from "../features/user/Username";
 
 const Header = () => {
   return (
-    <header className="bg-yellow-500 py-3 px-4 sm:px-6">
-      <div className="flex justify-around">
-        <div>
+    <header className="bg-yellow-400 py-3 px-4 sm:px-6">
+      <div className="sm:flex sm:justify-around">
+        <div className="pb-1">
           <Link
             to="/"
             className="uppercase tracking-widest text-lg font-semibold"

@@ -8,7 +8,7 @@ const AppLayout = () => {
   const isLoading = navigation.state === "loading";
 
   return (
-    <div className="container mx-auto grid h-screen grid-rows-[auto_1fr_auto] overflow-hidden">
+    <div className="container mx-auto grid h-screen grid-rows-[auto_1fr_auto]">
       {isLoading && <Loader />}
 
       <Header />

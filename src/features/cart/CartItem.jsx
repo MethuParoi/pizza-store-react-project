@@ -3,12 +3,13 @@ import { formatCurrency } from "../../utils/helpers";
 import DeleteItem from "./DeleteItem";
 import EmptyCart from "./EmptyCart";
 import UpdateItemQuantity from "./UpdateItemQuantity";
-import { getTotalCartQunatity } from "./cartSlice";
+import { getCurrentQuantityById, getTotalCartQunatity } from "./cartSlice";
 
 function CartItem({ item }) {
   const { pizzaId, name, quantity, totalPrice } = item;
 
   const totalQantity = useSelector(getTotalCartQunatity);
+  const currentQuantity = useSelector(getCurrentQuantityById(pizzaId));
 
   return (
     <li className="py-3 flex justify-between items-center">
@@ -21,7 +22,10 @@ function CartItem({ item }) {
       </div>
 
       <div className="flex items-center gap-x-7">
-        <UpdateItemQuantity pizzaId={pizzaId} />
+        <UpdateItemQuantity
+          currentQuantity={currentQuantity}
+          pizzaId={pizzaId}
+        />
         <DeleteItem pizzaId={pizzaId} />
       </div>
     </li>

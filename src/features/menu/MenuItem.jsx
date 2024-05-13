@@ -3,6 +3,7 @@ import Button from "../../ui/Button";
 import { useDispatch, useSelector } from "react-redux";
 import { addItem, getCurrentQuantityById } from "../cart/cartSlice";
 import DeleteItem from "../cart/DeleteItem";
+import UpdateItemQuantity from "../cart/UpdateItemQuantity";
 
 function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
@@ -32,7 +33,7 @@ function MenuItem({ pizza }) {
 
       <div className="flex grow flex-col ">
         <p className="text-lg font-medium">{name}</p>
-        <p className="italic capitalize text-stone-500">
+        <p className="italic capitalize text-stone-500 max-w-[32rem]">
           {ingredients.join(", ")}
         </p>
         <div className="mt-auto sm:flex justify-between items-center">
@@ -42,13 +43,21 @@ function MenuItem({ pizza }) {
             <p className="uppercase text-stone-500 font-semibold">Sold out</p>
           )}
 
-          {isInCart && <DeleteItem pizzaId={id} />}
+          <div className="flex gap-5 mt-2 sm:mt-0">
+            {isInCart && (
+              <UpdateItemQuantity
+                currentQuantity={currentQuantity}
+                pizzaId={id}
+              />
+            )}
+            {isInCart && <DeleteItem pizzaId={id} />}
 
-          {!soldOut && !isInCart && (
-            <Button onClick={handleAddToCart} to="" type="small">
-              ADD TO CART
-            </Button>
-          )}
+            {!soldOut && !isInCart && (
+              <Button onClick={handleAddToCart} to="" type="small">
+                ADD TO CART
+              </Button>
+            )}
+          </div>
         </div>
       </div>
     </li>

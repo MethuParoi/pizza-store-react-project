@@ -4,7 +4,7 @@ import Username from "../features/user/Username";
 
 const Header = () => {
   return (
-    <header className="bg-yellow-400 py-3 px-4 sm:px-6">
+    <header className="sticky top-0 bg-yellow-400 py-3 px-4 sm:px-6">
       <div className="sm:flex sm:justify-around">
         <div className="pb-1">
           <Link

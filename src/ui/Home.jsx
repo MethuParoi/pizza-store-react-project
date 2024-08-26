@@ -11,7 +11,7 @@ function Home() {
       {/* Background Image */}
       <img
         className="hidden lg:block absolute inset-0 h-full w-full object-cover -z-10"
-        src="../../public/images/Desktop_4.png"
+        src={backgroundImage}
         alt="Background"
       />
 
